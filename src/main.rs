@@ -36,6 +36,19 @@ fn value_in_cents(coin: Coin) -> u8 {
     }
 }
 //Matching with option<T>
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        None => None,
+        Some(i) => Some(i + 1),
+    }
+}
+//Using the underscore
+fn print_only_five(x: u8) {
+    match x {
+        5 => println!("Five"),
+        _ => println!(""),
+    }
+}
 
 fn main() {
     let four = IpAddrKind::v4;
@@ -49,5 +62,12 @@ fn main() {
     //     kind:IpAddrKind::v4,
     //     address:String::from("Katusepapi")
     // };
+    let five = Some(0);
+    let plus = plus_one(five);
+    println!("Five is {:?}", plus);
     let home = IpAddrKind::v4(String::from("127.0.0.1"));
+    print_only_five(0);
+    print_only_five(5);
+    print_only_five(3);
+    let mut count = 0;
 }
